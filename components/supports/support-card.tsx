@@ -38,8 +38,8 @@ export async function SupportCard({ support, locale }: SupportCardProps) {
   const pickupSummary = pickupBits.join(locale === "zh" ? " · " : " · ");
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-hle-card transition hover:border-hle-orange/35 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-hle-orange/40">
-      <div className="rounded-t-2xl ring-inset ring-hle-orange focus-within:ring-2">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-hle-card transition hover:border-hle-orange/35 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-hle-orange/40">
+      <div className="relative rounded-t-2xl ring-inset ring-hle-orange focus-within:ring-2">
         <SupportCardMedia
           images={support.image_urls}
           isAvailable={support.is_available}
@@ -47,25 +47,12 @@ export async function SupportCard({ support, locale }: SupportCardProps) {
           labelUnavailable={t("unavailable")}
           labelNoImage={t("noImage")}
         />
-        <div className="border-t border-neutral-800/40 bg-neutral-950 px-2 py-1 text-center dark:border-neutral-700">
-          <Link
-            href={detailHref}
-            className="text-xs font-medium text-hle-orange underline-offset-2 hover:underline dark:text-hle-orange-bright"
-          >
-            {t("viewDetail")}
-          </Link>
-        </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="space-y-1">
           <h2 className="text-lg font-semibold leading-snug text-neutral-900 dark:text-neutral-100">
-            <Link
-              href={detailHref}
-              className="line-clamp-2 rounded-sm text-left outline-none ring-hle-orange focus-visible:ring-2 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-neutral-950"
-            >
-              {title}
-            </Link>
+            <span className="line-clamp-2 text-left">{title}</span>
           </h2>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {organizer}
@@ -121,9 +108,17 @@ export async function SupportCard({ support, locale }: SupportCardProps) {
           </p>
         ) : null}
 
-        <p className="mt-auto text-xs text-neutral-400 dark:text-neutral-500">
-          {t("views", { count: support.view_count })}
-        </p>
+        <div className="mt-auto flex items-center justify-between gap-3">
+          <p className="text-xs text-neutral-400 dark:text-neutral-500">
+            {t("views", { count: support.view_count })}
+          </p>
+          <Link
+            href={detailHref}
+            className="inline-flex shrink-0 items-center rounded-lg bg-black px-3 py-1.5 text-xs font-semibold text-hle-orange transition hover:bg-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hle-orange focus-visible:ring-offset-2 dark:bg-neutral-950 dark:text-hle-orange-bright dark:hover:bg-neutral-900 dark:focus-visible:ring-offset-neutral-950"
+          >
+            {t("viewDetail")}
+          </Link>
+        </div>
       </div>
     </article>
   );

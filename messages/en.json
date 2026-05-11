@@ -60,6 +60,12 @@
     "moreLinks": "{count} more links",
     "moreTags": "+{count}"
   },
+  "SiteHeader": {
+    "brand": "GUMA's Game Fan Meeting Support Directory",
+    "bannerAlt": "Event banner artwork",
+    "bannerLabel": "Hero visual",
+    "bannerPending": "Header artwork is in progress — it will appear here when ready."
+  },
   "SiteFooter": {
     "founderSectionTitle": "Credits",
     "founderLine": "Site founder: (edit SiteFooter.founderLine in messages/en.json)",

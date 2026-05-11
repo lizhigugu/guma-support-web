@@ -60,10 +60,16 @@
     "moreLinks": "另有 {count} 個連結",
     "moreTags": "+{count}"
   },
+  "SiteHeader": {
+    "brand": "GUMA's 遊戲見面會應援物統整",
+    "bannerAlt": "活動版頭主視覺",
+    "bannerLabel": "活動主視覺",
+    "bannerPending": "版頭圖片製作中，完成後會顯示於此。"
+  },
   "SiteFooter": {
     "founderSectionTitle": "設立人資訊",
     "founderLine": "網站設立人：@lit.chi99",
-    "teamLine": "網站創建團隊：@pengzhen.huang",
+    "teamLine": "網站創建團隊：@pengzhen.huang @niconico.xo",
     "socialHeading": "社群",
     "socialThreads": "Threads",
     "socialInstagram": "Instagram",
