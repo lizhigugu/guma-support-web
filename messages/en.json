@@ -1,0 +1,106 @@
+{
+  "HomePage": {
+    "title": "GUMA's Game Fan Meeting Support Directory",
+    "titleAfterBrand": "Game Fan Meeting Support Directory",
+    "welcomeLine": "Welcome to GUMA's game fan meeting support directory — hope you have fun collecting support items on the day!",
+    "sectionTitle": "Support items",
+    "resultCount": "{count} results",
+    "empty": "No items yet. Check: 1) .env.local is set and dev server restarted 2) rows live in public.supports 3) RLS allows anon SELECT on that table 4) columns match the app query (including created_at, organizer_url).",
+    "emptyFiltered": "No items match your filters. Try changing search, filters, or sort."
+  },
+  "ImageCarousel": {
+    "ariaLabel": "Image carousel",
+    "prev": "Previous image",
+    "next": "Next image",
+    "goToSlide": "Go to slide {n}"
+  },
+  "SupportFilters": {
+    "openPanel": "🔍 Search & sort",
+    "searchPlaceholder": "Item name, organizer, or tag…",
+    "searchInputAria": "Search by item name, organizer, or tag",
+    "categoryLabel": "Category",
+    "categoryAll": "All",
+    "availabilityLabel": "Pickup status",
+    "availabilityAll": "All",
+    "availabilityAvailable": "Still available",
+    "availabilitySoldout": "Gone / ended",
+    "tagsLabel": "Tags (multi-select, match any selected)",
+    "sortLabel": "Sort",
+    "submit": "Apply",
+    "reset": "Clear",
+    "categories": {
+      "用品": "Supplies",
+      "食品": "Food",
+      "妝髮": "Hair & makeup",
+      "其他": "Other"
+    },
+    "sort": {
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "popular": "Most viewed",
+      "hidden": "Hidden gems (least viewed)"
+    },
+    "tagLabels": {
+      "免費": "Free",
+      "無領取條件": "No pickup requirements",
+      "需填表單": "Form required",
+      "需出示門票": "Ticket required",
+      "需部分粉絲證明": "Partial fan verification",
+      "可另外寄送": "Shipping available",
+      "可代領": "Proxy pickup OK"
+    }
+  },
+  "SupportCard": {
+    "viewDetail": "View details",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "pickup": "Pickup",
+    "views": "{count} views",
+    "noImage": "No image",
+    "moreLinks": "{count} more links",
+    "moreTags": "+{count}"
+  },
+  "SiteFooter": {
+    "founderSectionTitle": "Credits",
+    "founderLine": "Site founder: (edit SiteFooter.founderLine in messages/en.json)",
+    "teamLine": "Team: (list other contributors, comma-separated)",
+    "socialHeading": "Social",
+    "socialThreads": "Threads",
+    "socialInstagram": "Instagram",
+    "socialDiscord": "Discord",
+    "submissionTitle": "Submissions",
+    "submissionText": "To list your support info, please fill in the Google Form.",
+    "submissionLink": "Open Google Form",
+    "formUrlMissing": "Form link not set: add NEXT_PUBLIC_GOOGLE_FORM_URL to .env.local",
+    "legalTitle": "Disclaimer",
+    "legalLine1": "Unofficial fan compilation site",
+    "legalLine2": "For fan exchange only",
+    "legalLine3": "Information only — not for commercial use",
+    "totalViews": "All-time site views: {count}"
+  },
+  "DetailPage": {
+    "backHome": "← Back to home",
+    "publishedAt": "Published",
+    "available": "Still available",
+    "soldout": "Unavailable / ended",
+    "views": "{count} views",
+    "copyLink": "Copy page link",
+    "copied": "Copied",
+    "copyFailed": "Could not copy — copy the URL manually",
+    "galleryHeading": "Images",
+    "noImage": "No images yet",
+    "tagsHeading": "Tags",
+    "organizerLinksHeading": "Organizer links",
+    "pickupHeading": "Pickup",
+    "pickupTime": "Time",
+    "pickupLocation": "Location",
+    "pickupEmpty": "Pickup time and location are not filled in yet.",
+    "descriptionHeading": "Details",
+    "categories": {
+      "用品": "Supplies",
+      "食品": "Food",
+      "妝髮": "Hair & makeup",
+      "其他": "Other"
+    }
+  }
+}

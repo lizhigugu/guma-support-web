@@ -1,0 +1,195 @@
+# guma-support-web — Cursor Agent Rules
+
+## Product specification — GUMAYUSI 台灣活動／應援物統整網站
+
+### 專案目標
+
+建立以 **GUMAYUSI 來台灣活動** 為主題的 **粉絲應援物統整網站**，讓粉絲可快速 **查詢、搜尋、篩選、瀏覽** 所有應援資訊。
+
+### 視覺與品牌（UI／UX）
+
+- **主色**：橘色；**輔色**：白色。可搭配淺灰、米白、淡橘漸層。
+- 風格：**韓系應援感**，清爽、明亮、現代 **Web App**，**卡片式**，**行動優先（RWD）**。偏「收藏感」、粉絲向、資訊清楚易讀。
+- **參考體驗**：乾淨、韓系、類 Web App——可對齊參考站 [https://hle.kr/en](https://hle.kr/en) 的整體感（不需抄襲像素）。
+- **版權與視覺風險**：避免官方 Logo、官方主視覺、官方照片；Footer／聲明需標示 **非官方粉絲整理**、**僅交流／資訊統整、非商業用途**。
+- **深色模式**：**不需要**為產品目標；撰寫新 UI 時以 **亮色主題（白＋橘）** 為主。
+
+### 核心功能／使用者情境
+
+**核心**
+
+- 集中整理應援物；**搜尋**（名稱、主發人／主辦、標籤）、**分類／標籤／領取狀態篩選**，以及 **排序**（見首頁架構「排序」）。
+- 使用者能快速確認：有哪些應援、可否領取、領取條件、地點與時間、是否需事前登記等。
+
+**目標對象**：GUMAYUSI 粉絲、活動參加者、應援主辦方（資訊查閱為主）。
+
+### 首頁架構（必含區塊）
+
+1. **Hero Banner**
+   - 標題意涵：**GUMAYUSI 台灣應援物統整**（名稱待最終定案，見下方「未定義細節」）。
+   - 可放主視覺（圖後續提供）、活動日期、簡介。
+   - **Banner 尺寸建議**：Desktop 1920×800、Tablet 1280×720、Mobile 1080×1350；留安全區；建議 **WebP**。
+2. **搜尋**：應援物名稱、主發人／主辦、標籤。
+3. **排序**：首頁需提供排序選項（選單或同等 UI）：
+   - **最新發布**：發布時間由近到遠（優先 **`created_at` 降序**）。
+   - **最先發布**：發布時間由遠到近（**`created_at` 升序**）。
+   - **熱門應援**：瀏覽量由高到低（**`view_count` 降序**）。
+   - **隱藏寶藏**：瀏覽量由低到高（**`view_count` 升序**）。
+4. **篩選**
+   - **類別**：用品、食品、妝髮、其他。
+   - **標籤**（可多選，Hashtag 固定集）：免費、無領取條件、需填表單、需出示門票、需部分粉絲證明、可另外寄送、可代領。
+   - **領取狀態**：尚可領取／已發完。
+5. **應援物列表（卡片區）**：**首頁卡片僅預覽**——名稱、首圖／首頁圖、主辦人（主發人）、**最多三個標籤**。（完整欄位在詳細頁與區塊「應援物卡片與詳細頁」）
+6. **瀏覽量**：**Footer 顯示全站總瀏覽量**；**每張卡片**與**詳細頁**顯示該筆瀏覽量。
+
+### 應援物卡片與詳細頁（內容欄位）
+
+每筆應援物需有 **獨立詳細頁**，可分享連結；建議支援 **複製分享連結**。
+
+- **規格書 URL 範例**：`/support/[id]`。若程式目前使用其他路徑（例如複數 `/supports/[id]`），實作時應對齊產品或在此檔同步更新約定。
+- **狀態標籤顏色（產品建議）**：可領取 **橘色**；已發完 **灰色**。
+
+**基本**：名稱、類別、標籤、主發人、協辦人。
+
+**領取**：份數、領取條件、領取方式（現場領／另寄）、領取時間（**時段制**）、領取地點（**純文字**）、領取登記方式、是否仍可領取。
+
+**補充**：主辦想說的話、是否收費（免費或金額如 NT$100）、**圖片輪播 3～5 張**。
+
+### 圖片／輪播
+
+- **輪播**：左右切換、手機滑動、點擊放大預覽。
+- **單張圖片上傳上限**：**5MB**（上傳前於前端／Edge 檢核，並與 Supabase Storage 或所選 CDN 規則一致）。比例 1:1、3:2；橫／直式；**自動裁切**（實作時需定具體演算法與 Storage 策略）。
+
+### 後台與權限
+
+- **一般訪客**：不需會員、**不開放登入與投稿**。
+- **站長**：可登入後台；**後台登入方式待採用 Google OAuth**。
+- **內容流程**：投稿者填 **Google 表單** → **人工審核** → 站長 **手動** 登錄至網站（表單欄位待補）。
+- **站長亦可用 Supabase 直接改 Database**；Agent 提供 **SQL／遷移指令碼** 即可輔助 CRUD 與 schema 演進。
+- 後台表單欄位需 **對應前台所有欄位**。（若短期無獨立後台 UI，仍以 Supabase + SQL 對齊 schema。）
+
+### Footer（頁尾）
+
+- **設立資訊**：設立人名稱；創建團隊／其他協作者；可放社群（規格提及 Threads、Instagram、Discord）。
+- **投稿**：文案如「想登錄應援資訊請填寫 Google 表單」+ **Google 表單連結**。
+- **聲明**：非官方粉絲整理／僅供交流／統整資訊、非商業用途。
+- **全站總瀏覽量**於此區或固定位置展示（與 `site_metadata`／RPC 一致）。
+
+### SEO、效能與資料量
+
+- SEO 基本優化、手機體驗、圖片載入優化、搜尋體感、支援 **大量卡片**（預估 **少於 200 筆**、非瞬間巨量流量）。
+- **不需**自動依時間關閉領取狀態。
+- **多語系**：**中文／英文**；每筆資料需含 **中／英欄位**（英文可後續用 AI 補）。
+
+### 互動（進階氛圍）
+
+- Hover／浮動卡片、漸層背景、卡片轉場、手機滑動體驗——在 **亮色＋橘** 調性下適度使用（專案已含 Framer Motion 時再用於有必要處）。
+
+### 部署與技術偏好（對齊現況）
+
+- 前端：**Next.js / React**（本專案已採用）。
+- **後端／資料／儲存**：以 **Supabase** 為主；圖片儲存可再評估 Storage／Cloudinary 等（待定）。
+- 部署平台無硬性指定；**網址目標**：`gumayusi-tw-fm-fanmade.vercel.app`。
+- **站名候選**：中文「Gumayusi0616見面會應援物統整」、英文見規格備註（最終未定）。
+
+### Agent 協作期許（規格書原文摘要）
+
+協助時可涵蓋：完整網站 UI／UX、前後端架構、資料庫 schema、CRUD／後台、RWD、列表卡片、搜尋篩選與**排序**邏輯、標籤、圖片輪播、部署建議——**皆以本檔與 repo 現況為準逐步落地**。
+
+### 決策摘要
+
+| 項目 | 採用 |
+|------|------|
+| 排序選單（最新／最早／熱門／瀏覽低到高） | **需要** |
+| 全站總瀏覽量、各項瀏覽量 | **需要** |
+| 深色模式 | **不需要** |
+| 一般會員／訪客登入 | **不需要** |
+| 自動關閉領取狀態 | **不需要** |
+| RWD／Web App 感 | **需要** |
+| 單張圖片大小上限 | **5MB** |
+
+---
+
+## Stack
+
+- Next.js 14 (App Router), React 18, TypeScript.
+- Tailwind CSS for styling; Framer Motion only when animation is needed.
+- Internationalization with `next-intl`: locales `zh` (default) and `en`; routes live under `app/[locale]/`. Keep copy in `messages/zh.json` and `messages/en.json` in sync.
+- Data/auth patterns use Supabase (`@supabase/ssr`, `@supabase/supabase-js`); prefer existing helpers in `lib/supabase.ts` and typed shapes in `types/database.ts`.
+
+## Code style
+
+- Match existing naming, imports, and file layout. Prefer small, focused edits; avoid drive-by refactors or unrelated changes.
+- Use Server Components by default; add `"use client"` only when hooks, browser APIs, or client-only libraries require it.
+- Prefer `next-intl` APIs and `i18n/navigation` link helpers over hard-coded locale paths when routing between localized pages.
+- Do not commit secrets; use `.env` locally and follow `.env.example` for documented variables.
+
+## Quality bar
+
+- After substantive edits, run `npm run lint` and fix new issues you introduce.
+- Keep UI consistent (spacing, typography, accessible labels). Prefer accessible HTML patterns (semantic elements, meaningful button/link text).
+
+## Database (Supabase / PostgreSQL)
+
+Canonical DDL and RPC stubs for local reference and migrations. Apply in Supabase SQL Editor or via `supabase db push` migrations; keep `types/database.ts` aligned after schema changes.
+
+```sql
+CREATE TABLE supports (
+  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at timestamp WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+  
+  -- 名稱與主辦 (雙語)
+  title_zh text NOT NULL,
+  title_en text,
+  organizer_zh text NOT NULL,
+  organizer_en text,
+  organizer_url text[] NOT NULL DEFAULT '{}',
+  
+  -- 分類與標籤 (陣列儲存)
+  category text CHECK (category IN ('用品', '食品', '妝髮', '其他')),
+  tags text[] DEFAULT '{}', 
+  
+  -- 領取細節
+  pickup_time text,
+  pickup_location text,
+  is_available boolean DEFAULT true,
+  
+  -- 圖片與內容
+  image_urls text[] DEFAULT '{}',
+  description_zh text,
+  description_en text,
+  
+  -- 統計數據
+  view_count int DEFAULT 0
+);
+
+-- 全站總瀏覽量（供 increment_total_views 使用；單例列 id = 1）
+CREATE TABLE site_metadata (
+  id int PRIMARY KEY DEFAULT 1 CHECK (id = 1),
+  total_views bigint NOT NULL DEFAULT 0
+);
+
+INSERT INTO site_metadata (id, total_views)
+VALUES (1, 0)
+ON CONFLICT (id) DO NOTHING;
+
+-- 增加單一應援物瀏覽量
+CREATE OR REPLACE FUNCTION increment_view_count(support_id uuid)
+RETURNS void AS $$
+BEGIN
+  UPDATE supports
+  SET view_count = view_count + 1
+  WHERE id = support_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- 增加全站總瀏覽量
+CREATE OR REPLACE FUNCTION increment_total_views()
+RETURNS void AS $$
+BEGIN
+  UPDATE site_metadata
+  SET total_views = total_views + 1
+  WHERE id = 1;
+END;
+$$ LANGUAGE plpgsql;
+```

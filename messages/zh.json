@@ -1,0 +1,106 @@
+{
+  "HomePage": {
+    "title": "GUMA's 遊戲見面會應援物統整",
+    "titleAfterBrand": "遊戲見面會應援物統整",
+    "welcomeLine": "歡迎來到GUMA's 遊戲見面會應援物統整網站，希望大家當天領應援領的開心！",
+    "sectionTitle": "應援物列表",
+    "resultCount": "共 {count} 筆",
+    "empty": "目前沒有資料。請確認：1) .env.local 已設定且已重啟 npm run dev 2) 資料在「public.supports」表 3) Supabase RLS 已允許匿名角色（anon）SELECT 讀取該表 4) 表內含 created_at、organizer_url 等欄位與專案查詢一致。",
+    "emptyFiltered": "目前條件下沒有符合的應援物。請調整搜尋、篩選或排序。"
+  },
+  "ImageCarousel": {
+    "ariaLabel": "應援物圖片輪播",
+    "prev": "上一張",
+    "next": "下一張",
+    "goToSlide": "第 {n} 張"
+  },
+  "SupportFilters": {
+    "openPanel": "🔍使用搜尋及排序功能",
+    "searchPlaceholder": "應援物名稱、主辦或標籤關鍵字…",
+    "searchInputAria": "依應援物名稱、主辦或標籤關鍵字搜尋",
+    "categoryLabel": "類別",
+    "categoryAll": "全部",
+    "availabilityLabel": "領取狀態",
+    "availabilityAll": "全部",
+    "availabilityAvailable": "尚可領取",
+    "availabilitySoldout": "已發完",
+    "tagsLabel": "標籤（可複選，命中任一即可）",
+    "sortLabel": "排序",
+    "submit": "套用",
+    "reset": "清除條件",
+    "categories": {
+      "用品": "用品",
+      "食品": "食品",
+      "妝髮": "妝髮",
+      "其他": "其他"
+    },
+    "sort": {
+      "newest": "最新發布",
+      "oldest": "最先發布",
+      "popular": "熱門應援",
+      "hidden": "隱藏寶藏"
+    },
+    "tagLabels": {
+      "免費": "免費",
+      "無領取條件": "無領取條件",
+      "需填表單": "需填表單",
+      "需出示門票": "需出示門票",
+      "需部分粉絲證明": "需部分粉絲證明",
+      "可另外寄送": "可另外寄送",
+      "可代領": "可代領"
+    }
+  },
+  "SupportCard": {
+    "viewDetail": "查看詳情",
+    "available": "開放領取",
+    "unavailable": "暫停",
+    "pickup": "領取",
+    "views": "{count} 次瀏覽",
+    "noImage": "無圖片",
+    "moreLinks": "另有 {count} 個連結",
+    "moreTags": "+{count}"
+  },
+  "SiteFooter": {
+    "founderSectionTitle": "設立人資訊",
+    "founderLine": "網站設立人：@lit.chi99",
+    "teamLine": "網站創建團隊：@pengzhen.huang",
+    "socialHeading": "社群",
+    "socialThreads": "Threads",
+    "socialInstagram": "Instagram",
+    "socialDiscord": "Discord",
+    "submissionTitle": "投稿入口",
+    "submissionText": "想登錄應援資訊請填寫 Google 表單",
+    "submissionLink": "開啟 Google 表單",
+    "formUrlMissing": "尚未設定表單連結：請在 .env.local 設定 NEXT_PUBLIC_GOOGLE_FORM_URL",
+    "legalTitle": "版權資訊",
+    "legalLine1": "非官方粉絲整理網站",
+    "legalLine2": "僅供粉絲交流使用",
+    "legalLine3": "僅供資訊統整，不提供商業用途",
+    "totalViews": "全站累計瀏覽 {count} 次"
+  },
+  "DetailPage": {
+    "backHome": "← 回首頁",
+    "publishedAt": "發布時間",
+    "available": "尚可領取",
+    "soldout": "已發完",
+    "views": "{count} 次瀏覽",
+    "copyLink": "複製頁面連結",
+    "copied": "已複製",
+    "copyFailed": "無法複製，請手動選取網址",
+    "galleryHeading": "圖片",
+    "noImage": "尚無圖片",
+    "tagsHeading": "標籤",
+    "organizerLinksHeading": "主辦連結",
+    "pickupHeading": "領取資訊",
+    "pickupTime": "時間",
+    "pickupLocation": "地點",
+    "pickupEmpty": "尚未填寫領取時間或地點。",
+    "descriptionHeading": "說明",
+    "categories": {
+      "用品": "用品",
+      "食品": "食品",
+      "妝髮": "妝髮",
+      "其他": "其他"
+    }
+  }
+}

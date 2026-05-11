@@ -3,21 +3,66 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: transparent;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+}
+
+/**
+ * 全站漸層底（與 HLE 橘色調和）；動畫尊重 prefers-reduced-motion。
+ */
+.site-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+    125deg,
+    #fffaf5 0%,
+    #fff2e8 22%,
+    #ffe8d9 45%,
+    #fff5ee 68%,
+    #fffaf5 100%
+  );
+  background-size: 240% 240%;
+  animation: site-bg-shift 24s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-bg {
+    background: linear-gradient(
+      125deg,
+      #0c0c0c 0%,
+      #14110e 30%,
+      #1a1510 55%,
+      #12100d 100%
+    );
+    background-size: 240% 240%;
+  }
+}
+
+@keyframes site-bg-shift {
+  0%,
+  100% {
+    background-position: 0% 45%;
+  }
+  50% {
+    background-position: 100% 55%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-bg {
+    animation: none;
+    background-size: 100% 100%;
+  }
 }
 
 @layer utilities {
