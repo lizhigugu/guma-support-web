@@ -16,6 +16,8 @@ export const FILTER_TAG_OPTIONS = [
   "需部分粉絲證明",
   "可另外寄送",
   "可代領",
+  "尚待補充",
+  "有實體圖"
 ] as const;
 
 const FILTER_TAG_OPTION_SET = new Set<string>(FILTER_TAG_OPTIONS);
