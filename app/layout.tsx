@@ -30,6 +30,7 @@ export default function RootLayout({
     <html
       className={`${montserrat.variable} ${notoSansTC.variable}`}
       lang="zh-Hant"
+      data-theme="light"
       suppressHydrationWarning
     >
       <body className="site-bg antialiased text-neutral-900">
