@@ -3,30 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --background: transparent;
+  --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #ededed;
-  }
 }
 
 body {
   color: var(--foreground);
-  background: transparent;
+  background: var(--background);
 }
 
 .site-bg {
   min-height: 100vh;
   background: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  .site-bg {
-    background: #0c0c0c;
-  }
 }
 
 @layer utilities {
